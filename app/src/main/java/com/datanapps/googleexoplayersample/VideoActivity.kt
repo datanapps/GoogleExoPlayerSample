@@ -1,9 +1,14 @@
 package com.datanapps.googleexoplayersample
 
 
+import android.annotation.SuppressLint
 import android.net.Uri
 import android.os.Bundle
+import android.util.SparseArray
 import androidx.appcompat.app.AppCompatActivity
+import at.huber.youtubeExtractor.VideoMeta
+import at.huber.youtubeExtractor.YouTubeExtractor
+import at.huber.youtubeExtractor.YtFile
 import com.google.android.exoplayer2.DefaultLoadControl
 import com.google.android.exoplayer2.DefaultRenderersFactory
 import com.google.android.exoplayer2.ExoPlayerFactory
@@ -13,6 +18,11 @@ import com.google.android.exoplayer2.source.MediaSource
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory
 import kotlinx.android.synthetic.main.activity_video.*
+import androidx.core.app.ComponentActivity
+import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import java.io.IOException
 
 
 class VideoActivity : AppCompatActivity() {
@@ -34,11 +44,40 @@ class VideoActivity : AppCompatActivity() {
 
         playerView.setPlayer(player)
 
-        player.setPlayWhenReady(false)
+        player.setPlayWhenReady(true)
         player.seekTo(0, 0)
-        val uri = Uri.parse("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4")
+
+
+        // play MP4 Videos
+
+     /*  val uri = Uri.parse("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4")
         val mediaSource = buildMediaSource(uri)
         player.prepare(mediaSource, true, false)
+*/
+
+       // Play youtube video
+        extractYoutubeUrl("https://www.youtube.com/watch?v=OJ3K90FpQ6A");
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    private fun extractYoutubeUrl(youtubeLink:String) {
+        object : YouTubeExtractor(this) {
+            public override fun onExtractionComplete(
+                ytFiles: SparseArray<YtFile>?,
+                vMeta: VideoMeta
+            ) {
+                if (ytFiles != null) {
+                    val itag = 22
+                    val downloadUrl = ytFiles.get(itag).url
+
+                    // play url
+                    val uri = Uri.parse(downloadUrl)
+                    val mediaSource = buildMediaSource(uri)
+                    player.prepare(mediaSource, true, false)
+
+                }
+            }
+        }.extract(youtubeLink, true, true)
 
     }
 
