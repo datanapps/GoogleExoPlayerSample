@@ -12,18 +12,16 @@ import com.google.android.exoplayer2.source.ExtractorMediaSource
 import com.google.android.exoplayer2.source.MediaSource
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory
-import com.google.android.exoplayer2.util.Util
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_video.*
 
 
-
-class MainActivity : AppCompatActivity() {
+class VideoActivity : AppCompatActivity() {
 
     lateinit var player : SimpleExoPlayer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_video)
 
     }
 
@@ -38,7 +36,6 @@ class MainActivity : AppCompatActivity() {
 
         player.setPlayWhenReady(false)
         player.seekTo(0, 0)
-
         val uri = Uri.parse("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4")
         val mediaSource = buildMediaSource(uri)
         player.prepare(mediaSource, true, false)
@@ -53,38 +50,27 @@ class MainActivity : AppCompatActivity() {
 
     public override fun onStart() {
         super.onStart()
-
-            initializePlayer()
+        initializePlayer()
 
     }
 
-    public override fun onResume() {
-        super.onResume()
-        //hideSystemUi()
-        /*if (Util.SDK_INT <= 23 || playerView == null) {
-            initializePlayer()
-        }*/
-    }
 
 
     public override fun onPause() {
         super.onPause()
-        //if (Util.SDK_INT <= 23) {
-            releasePlayer()
-        //}
+        releasePlayer()
+
     }
 
     public override fun onStop() {
         super.onStop()
-       // if (Util.SDK_INT > 23) {
-            releasePlayer()
-        //}
+        releasePlayer()
     }
 
 
     private fun releasePlayer() {
         if (playerView != null) {
-           var playbackPosition = player.getCurrentPosition()
+            var playbackPosition = player.getCurrentPosition()
             var currentWindow = player.getCurrentWindowIndex()
             var playWhenReady = player.getPlayWhenReady()
             player.release()

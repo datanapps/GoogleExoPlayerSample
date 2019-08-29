@@ -18,7 +18,7 @@
         tools:ignore="GoogleAppIndexingWarning">
 
 
-        <activity android:name="com.datanapps.googleexoplayersample.MainActivity"
+        <activity android:name="com.datanapps.googleexoplayersample.VideoActivity"
             android:configChanges="screenSize|orientation|keyboardHidden"
             >
             <intent-filter>
