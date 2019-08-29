@@ -16,7 +16,11 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name="com.datanapps.googleexoplayersample.MainActivity">
+
+
+        <activity android:name="com.datanapps.googleexoplayersample.MainActivity"
+            android:configChanges="screenSize|orientation|keyboardHidden"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
