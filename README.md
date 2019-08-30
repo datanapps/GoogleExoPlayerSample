@@ -3,6 +3,9 @@
 A ExoPlayer player to play video in full screen with video media controller. 
 ExoPlyer also have to play youtube url with the help of youtubevideo extracter
 
+### Code structure : 
+
+![alt text](https://github.com/datanapps/GoogleExoPlayerSample/blob/master/screens/screen_1.jpg)
 
 ### Download APK : 
 
