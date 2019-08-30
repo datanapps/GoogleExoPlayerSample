@@ -18,11 +18,6 @@ import com.google.android.exoplayer2.source.MediaSource
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory
 import kotlinx.android.synthetic.main.activity_video.*
-import androidx.core.app.ComponentActivity
-import androidx.core.app.ComponentActivity.ExtraData
-import androidx.core.content.ContextCompat.getSystemService
-import android.icu.lang.UCharacter.GraphemeClusterBreak.T
-import java.io.IOException
 
 
 class VideoActivity : AppCompatActivity() {
@@ -50,13 +45,13 @@ class VideoActivity : AppCompatActivity() {
 
         // play MP4 Videos
 
-     /*  val uri = Uri.parse("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4")
+       val uri = Uri.parse("http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4")
         val mediaSource = buildMediaSource(uri)
         player.prepare(mediaSource, true, false)
-*/
+
 
        // Play youtube video
-        extractYoutubeUrl("https://www.youtube.com/watch?v=OJ3K90FpQ6A");
+       // extractYoutubeUrl("https://www.youtube.com/watch?v=OJ3K90FpQ6A");
     }
 
     @SuppressLint("StaticFieldLeak")
