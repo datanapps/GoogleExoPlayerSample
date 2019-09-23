@@ -59,4 +59,7 @@ https://github.com/datanapps/GoogleExoPlayerSample/blob/master/screens/app-debug
     
     
     
+#### Read More :
+
+https://firebase.google.com/docs/cloud-messaging/android/client
 
