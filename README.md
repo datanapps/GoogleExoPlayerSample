@@ -58,8 +58,4 @@ https://github.com/datanapps/GoogleExoPlayerSample/blob/master/screens/app-debug
     Hope it will work for you. Thank you.
     
     
-    
-#### Read More :
-
-https://firebase.google.com/docs/cloud-messaging/android/client
 
