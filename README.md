@@ -1,4 +1,4 @@
-# GoogleExoPlayerSample
+# GoogleExoPlayerSample (r2.2.12)
 
 A ExoPlayer player to play video in full screen with video media controller. 
 ExoPlyer also have to play youtube url with the help of youtubevideo extracter
