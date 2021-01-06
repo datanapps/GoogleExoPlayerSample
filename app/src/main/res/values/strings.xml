@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">ExoPlayerSample</string>
+    <string name="app_name">ExoplayerDemo</string>
+    <string name="audio_player_jump_time">15s</string>
+
+    <string name="media_url_1">https://datanapps.com/public/dnarestapi/media/videos/MyExerciseMotivation.mp4</string>
+
 </resources>
